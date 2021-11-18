@@ -1,24 +1,26 @@
-
 import react, { useState, useEffect } from "react";
-import { ChakraProvider } from "@chakra-ui/react"
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
+import "./App.css";
 
-import './App.css';
-import { Questions } from "./components"
-var axios = require('axios');
+import ProtectedRoutes from "./ProtectedRoutes";
 
-function App() {
+function App(props) {
 
+  const [uid, setUid] = useState(null);
+  const [initialized, setInitialized] = useState(false);
 
   const signup = (email, password) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in 
+        // Signed in
         const user = userCredential.user;
+        console.log("Signed up as:", user);
         // ...
       })
       .catch((error) => {
@@ -26,65 +28,90 @@ function App() {
         const errorMessage = error.message;
         // ..
       });
-  }
+  };
 
 
-  const initializeFirebaseAuth = () => {
-    // Import the functions you need from the SDKs you need
 
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
 
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+
+  // const initializeFirebaseAuth = () => {
     const firebaseConfig = {
-      apiKey: "AIzaSyBhVZreZNiwbjeFI5Fa_iMB7vMNqXaIEdY",
-      authDomain: "seds-332415.firebaseapp.com",
-      projectId: "seds-332415",
-      storageBucket: "seds-332415.appspot.com",
-      messagingSenderId: "443396178839",
-      appId: "1:443396178839:web:ccce23c8c7f3e0883b7ad2",
-      measurementId: "G-97Z9PPQNBD"
+      apiKey: "AIzaSyA_FUniyKfVaufm728VzIt7-t9q6dtd054",
+      authDomain: "seds-f724e.firebaseapp.com",
+      projectId: "seds-f724e", 
+      storageBucket: "seds-f724e.appspot.com",
+      messagingSenderId: "442488497960",
+      appId: "1:442488497960:web:e1a7982f41801e690a121d",
+      measurementId: "G-LCW2MYP82H",
     };
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
+      
+      // app.then(() => setInitialized(true));
     const analytics = getAnalytics(app);
-  }
+
+    // setInitialized(true)
+  // };
+
+  // const ini = () => {
+  //   console.log("ini");
+  //   setInitialized(true);
+  // }
+  
+  // setInitialized(true);
 
 
   useEffect(() => {
-    initializeFirebaseAuth();
+    // console.log("ccdf");
+    // initializeFirebaseAuth()
+    
+      setInitialized(true)
+      // ini();
+
+    // signup("hasinthashehan768@gmail.com", "Shehan@53645");
+    
+    // signout();
   }, []);
 
+  // const loadRoutes = () => {
+
+  //   }else{
+  //     return (
+  //       <Route path="*" element={<Loading/>} />);
+  //   }
+  // }
+
+  if (!initialized) {
+    return (
+      <>
+      <Loading/>
+      </>
+      
+    );
+  }
+
   return (
-
     <ChakraProvider>
-
-
-      <div className="App">
-        {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-
-
-        <Questions />
-
-      </div>
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path="*" element={<ProtectedRoutes {...props}/>} />
+          </Routes>
+        </div>
+      </Router>
 
     </ChakraProvider>
   );
 }
 
 export default App;
+
+const Loading = () => {
+  return (
+    <div>Loading</div>
+  );
+}
+
+

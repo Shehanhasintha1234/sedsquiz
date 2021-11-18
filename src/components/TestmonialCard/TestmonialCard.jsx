@@ -3,6 +3,7 @@ import {
     chakra,
     Flex,
     useColorModeValue,
+    Button
 } from "@chakra-ui/react";
 
 const backgrounds = [
@@ -59,28 +60,54 @@ function TestmonialCard(props: TestimonialCardProps) {
                 backgroundImage: backgrounds[index % 4],
             }}
         >
+
+
+            <chakra.p
+                fontFamily={"Inter"}
+                fontWeight={"medium"}
+                fontSize={"55px"}
+                // pb={4}
+                height={"80px"}
+                width={"80px"}
+                alignSelf={"center"}
+                backgroundColor={"red"}
+                marginX={"100px"}
+                m={{ base: "0 0 35px 0", md: "0 0 0 50px" }}
+            >
+
+                {1}
+            </chakra.p>
+
             <Flex
                 direction={"column"}
-                textAlign={"left"}
+                textAlign={"center"}
                 justifyContent={"space-between"}
             >
                 <chakra.p
                     fontFamily={"Inter"}
                     fontWeight={"medium"}
-                    fontSize={"15px"}
+                    fontSize={"45px"}
                     pb={4}
+                    width={"250px"}
+                    marginX={"100px"}
                 >
-                    {content}
+                    {name}
                 </chakra.p>
-                
+
+                <Button
+                    borderRadius={0}
+                    type={"button"}
+                    variant="solid"
+                    colorScheme="teal"
+                    width={"100px"}
+                    alignSelf={"center"}
+                    href={"./robots.txt"}
+                >
+                    Download
+                </Button>
+
             </Flex>
-            {/* <Avatar
-                src={avatar}
-                height={"80px"}
-                width={"80px"}
-                alignSelf={"center"}
-                m={{ base: "0 0 35px 0", md: "0 0 0 50px" }}
-            /> */}
+
         </Flex>
     );
 }

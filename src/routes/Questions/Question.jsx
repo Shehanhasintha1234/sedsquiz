@@ -1,27 +1,4 @@
-// import react from "react";
-// import { Grid, GridItem } from "@chakra-ui/react";
 
-// const Questions = () => {
-//     return (
-//         <div>
-//             <h1> Questions </h1>
-
-//             <Grid
-//                 h="200px"
-//                 templateRows="repeat(2, 1fr)"
-//                 templateColumns="repeat(5, 1fr)"
-//                 gap={4}
-//             >
-//                 <GridItem rowSpan={2} colSpan={1} bg="tomato" />
-//                 <GridItem colSpan={2} bg="papayawhip" />
-//                 <GridItem colSpan={2} bg="papayawhip" />
-//                 <GridItem colSpan={4} bg="tomato" />
-//             </Grid>
-//         </div>
-//     );
-// };
-
-// export default Questions;
 
 import {
     Box,
@@ -30,8 +7,9 @@ import {
     Icon,
     SimpleGrid,
     useColorModeValue,
+    Button
 } from "@chakra-ui/react";
-import { TestmonialCard } from "..";
+import { TestmonialCard } from "../../components";
 
 const testimonials = [
     {
@@ -78,7 +56,28 @@ const testimonials = [
 
 
 
-export default function GridBlurredBackdrop() {
+const Questions = (props) => {
+
+    const getTestimonials = () => {
+        const testimonials = [];
+        for (let i=0; i<10; i++) {
+            let data = {
+                name: `Question ${i+1}`
+            }
+            testimonials.push(<TestmonialCard key={i} {...data}  index={i}  />)
+        }
+        return testimonials;
+    }
+
+    const logOut = () => {
+        sessionStorage.removeItem("accessToken");
+        localStorage.removeItem("time");
+        localStorage.setItem("login", "false");
+        props.Signout();
+        window.location.reload();
+    }
+
+
     return (
         <Flex
             textAlign={"center"}
@@ -96,7 +95,11 @@ export default function GridBlurredBackdrop() {
                     color={"purple.400"}
                 >
                     SEDS presenting
+
+                    
+
                 </chakra.h3>
+                <Button colorScheme="blue" onClick={() => {logOut()}}>Log Out</Button>
                 <chakra.h1
                     py={5}
                     fontSize={48}
@@ -118,9 +121,9 @@ export default function GridBlurredBackdrop() {
                         50+
                     </chakra.strong>{" "}
                     questions for you to answer and you are required to
-                     email your answers in PDF format to the {" "}
+                    email your answers in PDF format to the {" "}
                     <chakra.strong color={useColorModeValue("gray.700", "gray.50")}>
-                    sedsquiz@gamil.com
+                        sedsquiz@gamil.com
                     </chakra.strong>{" "} with in the given period of time.
                 </chakra.h2>
             </Box>
@@ -130,9 +133,13 @@ export default function GridBlurredBackdrop() {
                 mt={16}
                 mx={"auto"}
             >
-                {testimonials.map((cardInfo, index) => (
+                {/* {testimonials.map((cardInfo, index) => (
                     <TestmonialCard {...cardInfo} index={index} />
-                ))}
+                ))} */}
+
+
+                {getTestimonials()}
+
             </SimpleGrid>
             <Box>
                 <Icon viewBox="0 0 40 35" mt={14} boxSize={10} color={"purple.400"}>
@@ -145,3 +152,5 @@ export default function GridBlurredBackdrop() {
         </Flex>
     );
 }
+
+export default Questions;
