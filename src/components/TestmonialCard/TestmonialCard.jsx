@@ -5,6 +5,7 @@ import {
     useColorModeValue,
     Button
 } from "@chakra-ui/react";
+import { saveAs } from 'file-saver';
 
 const backgrounds = [
     `url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='185' viewBox='0 0 560 185' fill='none'%3E%3Cellipse cx='102.633' cy='61.0737' rx='102.633' ry='61.0737' fill='%23ED64A6' /%3E%3Cellipse cx='399.573' cy='123.926' rx='102.633' ry='61.0737' fill='%23F56565' /%3E%3Cellipse cx='366.192' cy='73.2292' rx='193.808' ry='73.2292' fill='%2338B2AC' /%3E%3Cellipse cx='222.705' cy='110.585' rx='193.808' ry='73.2292' fill='%23ED8936' /%3E%3C/svg%3E")`,
@@ -23,6 +24,14 @@ interface TestimonialCardProps {
 
 function TestmonialCard(props: TestimonialCardProps) {
     const { name, role, content, avatar, index } = props;
+
+    const download = (questionNumber) => {
+        saveAs(
+            "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+            `questionNumber${questionNumber}.pdf`
+          );
+    }
+
     return (
         <Flex
             boxShadow={"lg"}
@@ -75,7 +84,7 @@ function TestmonialCard(props: TestimonialCardProps) {
                 m={{ base: "0 0 35px 0", md: "0 0 0 50px" }}
             >
 
-                {1}
+                {index}
             </chakra.p>
 
             <Flex
@@ -101,7 +110,7 @@ function TestmonialCard(props: TestimonialCardProps) {
                     colorScheme="teal"
                     width={"100px"}
                     alignSelf={"center"}
-                    href={"./robots.txt"}
+                    onClick={() => download(index)}
                 >
                     Download
                 </Button>

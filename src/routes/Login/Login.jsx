@@ -95,9 +95,9 @@ const Login = (props) => {
                                         </Button>
                                     </InputRightElement>
                                 </InputGroup>
-                                <FormHelperText textAlign="right">
+                                {/* <FormHelperText textAlign="right">
                                     <Link>forgot password?</Link>
-                                </FormHelperText>
+                                </FormHelperText> */}
                             </FormControl>
                             <Button
                                 borderRadius={0}
@@ -113,12 +113,7 @@ const Login = (props) => {
                     </form>
                 </Box>
             </Stack>
-            <Box>
-                New to us?{" "}
-                <Link color="teal.500" href="#">
-                    Sign Up
-                </Link>
-            </Box>
+
         </Flex>
     );
 };

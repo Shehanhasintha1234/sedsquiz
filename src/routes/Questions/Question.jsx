@@ -64,7 +64,7 @@ const Questions = (props) => {
             let data = {
                 name: `Question ${i+1}`
             }
-            testimonials.push(<TestmonialCard key={i} {...data}  index={i}  />)
+            testimonials.push(<TestmonialCard key={i+1} {...data}  index={i+1}  />)
         }
         return testimonials;
     }
@@ -94,7 +94,7 @@ const Questions = (props) => {
                     textTransform={"uppercase"}
                     color={"purple.400"}
                 >
-                    SEDS presenting
+                    SEDS WAYAMBA
 
                     
 
@@ -107,7 +107,7 @@ const Questions = (props) => {
                     fontWeight={"bold"}
                     color={useColorModeValue("gray.700", "gray.50")}
                 >
-                    21st Junior's Astro Night
+                    Students for the Exploration and Development of Space Srilanka
                 </chakra.h1>
                 <chakra.h2
                     margin={"auto"}
@@ -123,7 +123,7 @@ const Questions = (props) => {
                     questions for you to answer and you are required to
                     email your answers in PDF format to the {" "}
                     <chakra.strong color={useColorModeValue("gray.700", "gray.50")}>
-                        sedsquiz@gamil.com
+                        sedswayamba@gmail.com
                     </chakra.strong>{" "} with in the given period of time.
                 </chakra.h2>
             </Box>
