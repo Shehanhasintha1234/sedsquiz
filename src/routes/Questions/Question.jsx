@@ -84,9 +84,10 @@ const Questions = (props) => {
     const logOut = () => {
         sessionStorage.removeItem("accessToken");
         localStorage.removeItem("time");
-        localStorage.setItem("login", "false");
+        localStorage.setItem("login", false);
         props.Signout();
-        window.location.reload();
+        // window.location.reload();
+        
     }
 
 

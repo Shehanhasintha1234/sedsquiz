@@ -28,9 +28,9 @@ const Login = (props) => {
 
     const handleShowClick = () => setShowPassword(!showPassword);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-    }, []);
+    // }, []);
 
     const submit = (e) => {
         e.preventDefault();

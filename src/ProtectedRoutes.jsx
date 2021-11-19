@@ -16,8 +16,14 @@ const ProtectedRoutes = (props) => {
   useEffect(() => {
     
     const loginState = localStorage.getItem("login");
-    console.log("tttt")
-    setLogin(loginState);
+    console.log("tttt", loginState)
+    if (loginState == 'false'){
+      setLogin(false);
+
+    }else{
+      setLogin(true);
+
+    }
   },[])
 
   const signin = async (email, password) => {
@@ -36,6 +42,8 @@ const ProtectedRoutes = (props) => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        sessionStorage.removeItem("accessToken");
+        localStorage.removeItem("time");
         localStorage.setItem("login", false);
         setLogin(false);
       });
@@ -86,11 +94,13 @@ const ProtectedRoutes = (props) => {
 
 
 
-
-  if (!login) {
-    return <Login Signin={signin} login/>;
-  } else {
+  console.log(localStorage.getItem("login"))
+  if (login) {
+    console.log("logintttt", login);
     return <Questions Signout={signout} login/>;
+  } else {
+    return <Login Signin={signin} login/>;
+    
   }
 };
 
