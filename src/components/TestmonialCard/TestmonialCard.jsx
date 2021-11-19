@@ -16,18 +16,18 @@ const backgrounds = [
 
 interface TestimonialCardProps {
     name: string;
-    role: string;
+    questions: string;
     content: string;
     avatar: string;
     index: number;
 }
 
 function TestmonialCard(props: TestimonialCardProps) {
-    const { name, role, content, avatar, index } = props;
+    const { name, questions, content, avatar, index } = props;
 
     const download = (questionNumber) => {
         saveAs(
-            "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+            `${questions}`,
             `questionNumber${questionNumber}.pdf`
           );
     }
@@ -112,7 +112,7 @@ function TestmonialCard(props: TestimonialCardProps) {
                     alignSelf={"center"}
                     onClick={() => download(index)}
                 >
-                    Download
+                    view
                 </Button>
 
             </Flex>

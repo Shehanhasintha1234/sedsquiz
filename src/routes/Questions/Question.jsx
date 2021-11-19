@@ -14,7 +14,7 @@ import { TestmonialCard } from "../../components";
 const testimonials = [
     {
         name: "Brandon P.",
-        role: "Chief Marketing Officer",
+        question: "https://drive.google.com/drive/folders/1UEdUuBTUWcalepCe7-FfCKfsFzqbZA82?usp=sharing",
         content:
             "It really saves me time and effort. It is exactly what our business has been lacking. EEZY is the most valuable business resource we have EVER purchased. After using EEZY my business skyrocketed!",
         avatar:
@@ -22,7 +22,7 @@ const testimonials = [
     },
     {
         name: "Krysta B.",
-        role: "Entrepreneur",
+        question: "Entrepreneur",
         content:
             "I didn't even need training. We've used EEZY for the last five years. I have gotten at least 50 times the value from EEZY. I made back the purchase price in just 48 hours!",
         avatar:
@@ -30,7 +30,7 @@ const testimonials = [
     },
     {
         name: "Darcy L.",
-        role: "Movie star",
+        question: "Movie star",
         content:
             "Thank you for making it painless, pleasant and most of all, hassle free! I'm good to go. No matter where you go, EEZY is the coolest, most happening thing around! I love EEZY!",
         avatar:
@@ -38,7 +38,7 @@ const testimonials = [
     },
     {
         name: "Daniel T.",
-        role: "Musician",
+        question: "Musician",
         content:
             "I am so pleased with this product. EEZY is both attractive and highly adaptable. Without EEZY, we would have gone bankrupt by now. Thank you for creating this product!",
         avatar:
@@ -46,7 +46,7 @@ const testimonials = [
     },
     {
         name: "Krysta B.",
-        role: "Entrepreneur",
+        question: "Entrepreneur",
         content:
             "I didn't even need training. We've used EEZY for the last five years. I have gotten at least 50 times the value from EEZY. I made back the purchase price in just 48 hours!",
         avatar:
@@ -54,7 +54,18 @@ const testimonials = [
     },
 ];
 
-
+const questions = [
+    "https://drive.google.com/file/d/1OS3yDOioEc6mDfbJUwCreiTg3NoRfFcf/view?usp=sharing",
+    "https://drive.google.com/file/d/1MeGcYF99CCFRyN4iRzXJ6r55UUGCOm5x/view?usp=sharing",
+    "https://drive.google.com/file/d/1qsEDMOccM-Wq2he3aQ0rdUXuS2LMFIbl/view?usp=sharing",
+    "https://drive.google.com/file/d/1hqL2alxDdiJvsU2fJtAV0o0vaI58EtS3/view?usp=sharing",
+    "https://drive.google.com/drive/folders/1L1RCk-ZKt1krRkEZuqszcqnatZTBYZwM?usp=sharing",
+    "https://drive.google.com/file/d/1aAHGZ8oNZ7_PaurCSoEoGz_wcop7_3oR/view?usp=sharing",
+    "https://drive.google.com/file/d/1J40zeSaaV655FAWbyFdIjjWs0Hkkzrh6/view?usp=sharing",
+    "https://drive.google.com/file/d/1iclcqgbnCS_PzFrXjigYFviGNC8Kq-BR/view?usp=sharing",
+    "https://drive.google.com/file/d/1oXUmYlBLOfguTjNP2M0UpFsWnvcGTka-/view?usp=sharing",
+    "https://drive.google.com/file/d/1WsUxjgZTyc7AqhsbxplLv7SaenK82cgX/view?usp=sharing"
+]
 
 const Questions = (props) => {
 
@@ -64,7 +75,8 @@ const Questions = (props) => {
             let data = {
                 name: `Question ${i+1}`
             }
-            testimonials.push(<TestmonialCard key={i+1} {...data}  index={i+1}  />)
+            console.log(questions[i])
+            testimonials.push(<TestmonialCard key={i+1} {...data} questions={questions[i]} index={i+1}  />)
         }
         return testimonials;
     }
@@ -118,7 +130,7 @@ const Questions = (props) => {
                 >
                     There are {" "}
                     <chakra.strong color={useColorModeValue("gray.700", "gray.50")}>
-                        50+
+                        10
                     </chakra.strong>{" "}
                     questions for you to answer and you are required to
                     email your answers in PDF format to the {" "}
