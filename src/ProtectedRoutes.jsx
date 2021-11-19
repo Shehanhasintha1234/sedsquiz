@@ -16,8 +16,7 @@ const ProtectedRoutes = (props) => {
   useEffect(() => {
     
     const loginState = localStorage.getItem("login");
-    console.log("tttt", loginState)
-    if (loginState == 'false'){
+    if (loginState === 'false'){
       setLogin(false);
 
     }else{
@@ -27,12 +26,12 @@ const ProtectedRoutes = (props) => {
   },[])
 
   const signin = async (email, password) => {
-    console.log("signin");
+    // console.log("signin");
     const auth = getAuth();
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user.refreshToken);
+        // console.log(user.refreshToken);
         setAccessToken(user.accessToken);
         setTime(user.stsTokenManager.expirationTime);
         localStorage.setItem("login", true);
@@ -68,7 +67,7 @@ const ProtectedRoutes = (props) => {
     const accessTokens = sessionStorage.getItem("accessToken");
     const time = sessionStorage.getItem("time");
     if (accessTokens == null) {
-      console.log("accessTokenslk", time);
+      // console.log("accessTokenslk", time);
       //return to login
       
       localStorage.setItem("login", false);
@@ -87,16 +86,13 @@ const ProtectedRoutes = (props) => {
  
 
   useEffect(() => {
-    console.log("login", login);
     sessionStorage.setItem("accessToken", accessToken);
     sessionStorage.setItem("time", time);
   }, [accessToken, time]);
 
 
 
-  console.log(localStorage.getItem("login"))
   if (login) {
-    console.log("logintttt", login);
     return <Questions Signout={signout} login/>;
   } else {
     return <Login Signin={signin} login/>;

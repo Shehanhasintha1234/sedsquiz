@@ -26,7 +26,10 @@ const Login = (props) => {
     const [password, setPassword] = useState(null);
     const [user, setUser] = useState(null);
 
-    const handleShowClick = () => setShowPassword(!showPassword);
+    const handleShowClick = () => {
+        console.log("showPassword", password);
+        setShowPassword(!showPassword)
+    };
 
     // useEffect(() => {
 
@@ -36,9 +39,10 @@ const Login = (props) => {
         e.preventDefault();
         console.log(password, user);
         const accessTokens = sessionStorage.getItem("accessToken");
-        if (accessTokens != null) {
+        // if (accessTokens == null) {
+            console.log("called")
             props.Signin(user, password);
-        }
+        // }
 
     }
 
@@ -93,8 +97,8 @@ const Login = (props) => {
                                         onChange={(e) => setPassword(e.target.value)}
                                     />
                                     <InputRightElement width="4.5rem">
-                                        <Button h="1.75rem" size="sm" >
-                                            {showPassword ? "Hide" : "Show"}
+                                        <Button h="1.75rem" size="sm" onClick={(e) => handleShowClick()}>
+                                            {showPassword ? "Hide" : "Show"} 
                                         </Button>
                                     </InputRightElement>
                                 </InputGroup>
