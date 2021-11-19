@@ -23,6 +23,8 @@ const CFaLock = chakra(FaLock);
 
 const Login = (props) => {
     const [showPassword, setShowPassword] = useState(false);
+    const [password, setPassword] = useState(null);
+    const [user, setUser] = useState(null);
 
     const handleShowClick = () => setShowPassword(!showPassword);
 
@@ -32,10 +34,10 @@ const Login = (props) => {
 
     const submit = (e) => {
         e.preventDefault();
-        console.log("sds");
+        console.log(password, user);
         const accessTokens = sessionStorage.getItem("accessToken");
         if (accessTokens != null) {
-            props.Signin("hasinthashehan768@gmail.com", "Shehan@53645");
+            props.Signin(user, password);
         }
 
     }
@@ -75,7 +77,7 @@ const Login = (props) => {
                                         pointerEvents="none"
                                         children={<CFaUserAlt color="gray.300" />}
                                     />
-                                    <Input type="email" placeholder="email address" />
+                                    <Input type="email" placeholder="email address" onChange={(e) => setUser(e.target.value)}/>
                                 </InputGroup>
                             </FormControl>
                             <FormControl>
@@ -88,9 +90,10 @@ const Login = (props) => {
                                     <Input
                                         type={showPassword ? "text" : "password"}
                                         placeholder="Password"
+                                        onChange={(e) => setPassword(e.target.value)}
                                     />
                                     <InputRightElement width="4.5rem">
-                                        <Button h="1.75rem" size="sm" onClick={handleShowClick}>
+                                        <Button h="1.75rem" size="sm" >
                                             {showPassword ? "Hide" : "Show"}
                                         </Button>
                                     </InputRightElement>

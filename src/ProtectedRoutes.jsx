@@ -14,8 +14,9 @@ const ProtectedRoutes = (props) => {
   const [login, setLogin] = useState(false);
 
   useEffect(() => {
-    console.log("tttt")
+    
     const loginState = localStorage.getItem("login");
+    console.log("tttt")
     setLogin(loginState);
   },[])
 
@@ -35,6 +36,8 @@ const ProtectedRoutes = (props) => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        localStorage.setItem("login", false);
+        setLogin(false);
       });
   };
 
@@ -42,9 +45,13 @@ const ProtectedRoutes = (props) => {
     const auth = getAuth();
     signOut(auth).then((res) => {
       // Sign-out successful.
+      localStorage.setItem("login", false);
+      setLogin(false);
 
     }).catch((error) => {
       // An error happened.
+      localStorage.setItem("login", false);
+      setLogin(false);
     });
   }
 
@@ -55,15 +62,17 @@ const ProtectedRoutes = (props) => {
     if (accessTokens == null) {
       console.log("accessTokenslk", time);
       //return to login
-      setLogin(false);
+      
       localStorage.setItem("login", false);
+      setLogin(false);
       return;
     }
     if (moment().valueOf() > time) {
       sessionStorage.removeItem("accessToken");
       sessionStorage.removeItem("time");
-      setLogin(false);
+      
       localStorage.setItem("login", false);
+      setLogin(false);
     }
   }, [accessToken, time]);
 
