@@ -7,9 +7,12 @@ import {
     Icon,
     SimpleGrid,
     useColorModeValue,
-    Button
+    Button,
+    Image
 } from "@chakra-ui/react";
 import { TestmonialCard } from "../../components";
+
+import sedsImage from "./docs/seds.jpg";
 
 const testimonials = [
     {
@@ -113,7 +116,7 @@ const Questions = (props) => {
 
                 </chakra.h3>
                 <Button colorScheme="blue" onClick={() => {logOut()}}>Log Out</Button>
-                <chakra.h1
+                {/* <chakra.h1
                     py={5}
                     fontSize={48}
                     fontFamily={"Work Sans"}
@@ -121,7 +124,8 @@ const Questions = (props) => {
                     color={useColorModeValue("gray.700", "gray.50")}
                 >
                     Students for the Exploration and Development of Space Srilanka
-                </chakra.h1>
+                </chakra.h1> */}
+               
                 <chakra.h2
                     margin={"auto"}
                     width={"70%"}
@@ -129,6 +133,11 @@ const Questions = (props) => {
                     fontWeight={"medium"}
                     color={useColorModeValue("gray.500", "gray.400")}
                 >
+
+                    <Box width={"100%"} marginTop={"20px"}>
+                        <Image src={sedsImage} alt="seds" />
+                    </Box>
+
                     There are {" "}
                     <chakra.strong color={useColorModeValue("gray.700", "gray.50")}>
                         10
