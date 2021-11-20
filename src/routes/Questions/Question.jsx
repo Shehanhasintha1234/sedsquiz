@@ -55,16 +55,16 @@ const testimonials = [
 ];
 
 const questions = [
-    "https://drive.google.com/file/d/1OS3yDOioEc6mDfbJUwCreiTg3NoRfFcf/view?usp=sharing",
-    "https://drive.google.com/file/d/1MeGcYF99CCFRyN4iRzXJ6r55UUGCOm5x/view?usp=sharing",
-    "https://drive.google.com/file/d/1qsEDMOccM-Wq2he3aQ0rdUXuS2LMFIbl/view?usp=sharing",
-    "https://drive.google.com/file/d/1hqL2alxDdiJvsU2fJtAV0o0vaI58EtS3/view?usp=sharing",
+    "https://drive.google.com/file/d/1yKX2sysFQfEUXjhDiFw7IN9oXaJb-DIH/view?usp=sharing",
+    "https://drive.google.com/file/d/1Kv8GJvTGDLBEWEnp7KK8ZyTQPfUvi7DZ/view?usp=sharing",
+    "https://drive.google.com/file/d/1HocSvy_nIlDrLYqhSwbhJoTZSHQ9CvE9/view?usp=sharing",
+    "https://drive.google.com/file/d/1QK2Q8SMbDPuPFtGnZzdntEdSsFmwpoQ7/view?usp=sharing",
     "https://drive.google.com/file/d/1RAWwzoS_Zs3iFjJMZ2I4j-EWiQYz1bgl/view?usp=sharing",
-    "https://drive.google.com/file/d/1aAHGZ8oNZ7_PaurCSoEoGz_wcop7_3oR/view?usp=sharing",
-    "https://drive.google.com/file/d/1J40zeSaaV655FAWbyFdIjjWs0Hkkzrh6/view?usp=sharing",
-    "https://drive.google.com/file/d/1iclcqgbnCS_PzFrXjigYFviGNC8Kq-BR/view?usp=sharing",
-    "https://drive.google.com/file/d/1oXUmYlBLOfguTjNP2M0UpFsWnvcGTka-/view?usp=sharing",
-    "https://drive.google.com/file/d/1WsUxjgZTyc7AqhsbxplLv7SaenK82cgX/view?usp=sharing"
+    "https://drive.google.com/file/d/1yxi4qkrkemlIHNNNjGDjJe5jcAFi5QD-/view?usp=sharing",
+    "https://drive.google.com/file/d/1hxRxeXmfbvOFQ7XOVIljZQQz1W9trf9J/view?usp=sharing",
+    "https://drive.google.com/file/d/1UHp-XRlpg26ZNQcxcX6SqewnA1GQLZr1/view?usp=sharing",
+    "https://drive.google.com/file/d/1-EsvluBxVSD7WDlDOBk-gVq44QkNGhsH/view?usp=sharing",
+    "https://drive.google.com/file/d/1vMW1lfxtxQa3CjcSaWsgfu-wP7vkvEIt/view?usp=sharing"
 ]
 
 const Questions = (props) => {
