@@ -139,7 +139,7 @@ const Questions = (props) => {
                         <Image src={sedsImage} alt="seds" />
                     </Box>
 
-                    There are {" "}
+                    {/* There are {" "}
                     <chakra.strong color={useColorModeValue("gray.700", "gray.50")}>
                         10
                     </chakra.strong>{" "}
@@ -147,7 +147,7 @@ const Questions = (props) => {
                     email your answers in PDF format to the {" "}
                     <chakra.strong color={useColorModeValue("gray.700", "gray.50")}>
                         sedswayamba@gmail.com
-                    </chakra.strong>{" "} with in the given period of time.
+                    </chakra.strong>{" "} with in the given period of time. */}
                 </chakra.h2>
             </Box>
             <SimpleGrid
